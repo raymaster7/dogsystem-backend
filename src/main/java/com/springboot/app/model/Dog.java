@@ -4,42 +4,47 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import java.util.List;
 
 @Entity
 public class Dog {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String breed;
-	
-	public Dog() {
-	}
+    @ElementCollection
+    @CollectionTable(name = "answers")
+    @Column(name = "answer")
+    private List<String> answer;
 
-	public int getId() {
-		return id;
-	}
+    private String breed;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Dog() {}
 
-	public String getName() {
-		return name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getBreed() {
-		return breed;
-	}
+    public List<String> getAnswer() {
+        return answer;
+    }
 
-	public void setBreed(String breed) {
-		this.breed = breed;
-	}
-	
-	
+    public void setAnswer(List<String> answer) {
+        this.answer = answer;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
 }

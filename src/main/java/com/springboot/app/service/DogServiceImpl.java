@@ -24,4 +24,10 @@ public class DogServiceImpl implements DogService {
 		return dogRepository.findAll();
 	}
 
+	@Override
+	public String getBreed(List<String> answers) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

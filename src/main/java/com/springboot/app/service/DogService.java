@@ -8,5 +8,5 @@ public interface DogService {
 	
 	public Dog saveDog(Dog dog);
 	public List<Dog> getAllDogs();
-	
+	public String getBreed(List<String> answers);
 }
